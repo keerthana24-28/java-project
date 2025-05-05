@@ -1,0 +1,37 @@
+package main.utils;
+
+import main.converter.TemperatureConverter;
+import java.util.Scanner;
+
+public class MenuUtils {
+    public static void displayMainMenu() {
+        System.out.println("\n==== Temperature Converter ====");
+        System.out.println("1. Celsius Conversions");
+        System.out.println("2. Fahrenheit Conversions");
+        System.out.println("3. Kelvin Conversions");
+        System.out.println("4. Exit");
+        System.out.print("Enter your choice: ");
+    }
+    
+    public static void handleCelsiusConversion(Scanner scanner, TemperatureConverter converter) {
+        System.out.println("\nCelsius Conversion Options:");
+        System.out.println("1. Celsius to Fahrenheit");
+        System.out.println("2. Celsius to Kelvin");
+        System.out.print("Enter choice: ");
+        int subChoice = scanner.nextInt();
+        
+        System.out.print("Enter temperature in Celsius: ");
+        double temp = scanner.nextDouble();
+        
+        if (subChoice == 1) {
+            System.out.printf("%.2f°C = %.2f°F\n", temp, converter.celsiusToFahrenheit(temp));
+        } else if (subChoice == 2) {
+            System.out.printf("%.2f°C = %.2fK\n", temp, converter.celsiusToKelvin(temp));
+        } else {
+            System.out.println("Invalid choice!");
+        }
+    }
+    
+    // Similar methods for handleFahrenheitConversion and handleKelvinConversion
+    // (Follow the same pattern as handleCelsiusConversion)
+}
