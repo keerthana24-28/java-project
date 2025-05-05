@@ -1,0 +1,35 @@
+package main;
+ 
+ import main.converter.TemperatureConverter;
+ import main.utils.MenuUtils;
+ import java.util.Scanner;
+ 
+ public class Main {
+     public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+         TemperatureConverter converter = new TemperatureConverter();
+         
+         while (true) {
+             MenuUtils.displayMainMenu();
+             int choice = scanner.nextInt();
+             
+             switch (choice) {
+                 case 1:
+                     MenuUtils.handleCelsiusConversion(scanner, converter);
+                     break;
+                 case 2:
+                     MenuUtils.handleFahrenheitConversion(scanner, converter);
+                     break;
+                 case 3:
+                     MenuUtils.handleKelvinConversion(scanner, converter);
+                     break;
+                 case 4:
+                     System.out.println("Exiting...");
+                     scanner.close();
+                     System.exit(0);
+                 default:
+                     System.out.println("Invalid choice!");
+             }
+         }
+     }
+ }
